@@ -49,13 +49,13 @@ Usage
 Available Admin usernames and passwords:
 
 
-Uname         Password
-- sahil          123
-- hemant         618
-- rhythm         728
-- pratham        287
-- Piyushgg       122
-- Zia            345
+Uname  ------    Password
+- sahil     ----   123
+- hemant    ----   618
+- rhythm    ----   728
+- pratham   ---    287
+- Piyushgg  ---   122
+- Zia       ---   345
 - Perform actions such as managing users, adding projects, and generating reports.
 
 3. Student:
