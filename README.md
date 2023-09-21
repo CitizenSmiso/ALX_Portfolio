@@ -34,7 +34,7 @@ Technologies Used
 
 Installation
 
-1. Clone the repository: `git clone <https://github.com/SK-ILLish-GIT/SE-project>`
+1. Clone the repository: `git clone <https://github.com/CitizenSmiso/ALX_Portfolio>`
 2. Install required dependencies using ‘npm i’.
 3. Run using nodemon
 - nodemon app.js
@@ -60,7 +60,7 @@ Uname  ------    Password
 
 3. Student:
 
-- Login with IIITA email credentials to access the student module.
+- Login with your email credentials to access the student module.
 - If account does not exist Create a new account using ‘register’ option and providing
 necessary details.
 - Name
