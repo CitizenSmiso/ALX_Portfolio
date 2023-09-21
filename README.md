@@ -15,7 +15,7 @@ Admin Module:
 
 Student Module:
 
-- Login as a student using you email credentials.
+- Login as a student using your email credentials.
 - View and edit personal information.
 - Add, edit, and delete projects in the portfolio.
 - Add, edit, and delete skills in the profile.
