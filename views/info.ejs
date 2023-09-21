@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFORMATION</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css_Info/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <!-- <div class="upper_wala"> -->
+
+  <!-- </div> -->
+
+  <!-- <nav aria-label="breadcrumb"> -->
+  <!-- <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Social</li>
+                        </ol> -->
+  <!-- </nav> -->
+  <!-- <div class="row ">
+                    <div class="col-lg-12">
+                        <ul class=" nav nav-tabs justify-content-center s-nav">
+                            <li><a href="#">Timeline</a></li>
+                            <li><a class="active" href="#">About</a></li>
+                            <li><a href="#">Friends</a></li>
+                            <li><a href="#">Photos</a></li>
+                            <li><a href="#">Videos</a></li>
+                        </ul>
+                    </div>
+                </div> -->
+  <div class="main_container">
+
+
+    <div class="container">
+      <nav class="navbar">
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <a class="overlay-content_left_rotation" href="/home">Home</a>
+            <a class="overlay-content_right_rotation" href="/">Login Or Register</a>
+            <a class="overlay-content_left_rotation" href="/home#section-about" onclick="closeNav()">Search Student</a>
+            <a class="overlay-content_left_rotation" href="/contact">Contact Us</a>
+            <a class="overlay-content_right_rotation" href="/feedback">Feedback</a>
+            <a class="overlay-content_left_rotation" href="/logout" role="button">Logout</a>
+          </div>
+          <div class="social_links">
+            <a href="https://www.instagram.com/rhythm_1027/" class="instagram" target="_blank"><i class="fa-brands fa-instagram fa-lg" style="color: #d1109d;"></i></a>
+            <a href="https://www.linkedin.com/in/mohd-zia-92292a211/" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin fa-lg" style="color: #286cff;"></i></a>
+            <a href="#" class="facebook" target="_blank"><i class="fa-brands fa-facebook fa-lg" style="color: #3b5998;"></i></a>
+            <a href="https://twitter.com/MohdZiaAns93" class="twitter" target="_blank"><i class="fa-brands fa-twitter fa-lg" style="color: #00acee;"></i></a>
+            <a href="https://github.com/SK-ILLish-GIT/" class="github" target="_blank"><i class="fa-brands fa-github fa-lg" style="color: #ff0000;"></i></a>
+          </div>
+        </div>
+        <div class="header__logo-box">
+          <!-- <img src="/img/logo-green-1x.png" alt="Logo" class="header__logo"> -->
+          <img src="/img/logo-green-1x.png" alt="Logo" class="header__logo">
+        </div>
+        <div class="header__profile__container">
+          <a href="/info"><img src=<%=currUser.profilePic%> class="header__profile__img" style="width: 50px;" alt="Avatar" /></a>
+        </div>
+        <span style="font-size:45px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      </nav>
+      <!-- <nav>
+            <label class="logo">Portfolio Website</label>
+            <ul>
+
+                <li><a class="active" href="#" style="text-decoration: none;">Home</a></li>
+                <li><a class="active" href="#" style="text-decoration: none;">Info</a></li>
+                <li><a class="active" href="#" style="text-decoration: none;">About</a></li>
+                <li><a class="active" href="#" style="text-decoration: none;">Contact</a></li>
+                <li><a class="active" href="#" style="text-decoration: none;">LogOut</a></li>
+
+
+            </ul>
+        </nav> -->
+      <div class="row1">
+        <div class="col-md-12">
+          <div class="top-breadcrumb">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="img" style=" padding: 0%;   background-image: linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%,
+         rgba(63, 175, 255, 0.755)94%), url(<%=currUser.profilePic%>);
+        height: 500px;background-size:contain;background-position:center;background-repeat: no-repeat ;background-size: auto 100%;"></div>
+      <div class="card social-prof">
+        <div class="card-body" style="
+    width: 70vw;">
+          <div class=" wrapper">
+            <img src=<%=currUser.profilePic%> alt="" id="photo" class="user-profile">
+            <h3><%=currUser.basicInfo.name%> </h3>
+            <p><%= currUser.username%></p>
+            <!-- <form action="/change" method="post">
+                        <button type="submit">EDIT</button>
+                        </form> -->
+            <!-- <a class="overlay-content_left_rotation" href="/change">Contact</a> -->
+            <%if(uploadPhoto===1){%>
+            <button class="edit-button">
+              <form action="/info/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" id="photo_label" name="profileImage">
+                <div class="row">
+                  <div class="col">
+                    <label for="photo_label">Choose Photo</label>
+                    <button style="display: none;"></button>
+                  </div>
+                  <div class="col submit-wrapper">
+                    <input type="submit" value="Upload" />
+                  </div>
+                </div>
+              </form>
+            </button>
+            <div class="row">
+              
+              <%}%>
+          <% if(button===1){%>
+              <div class="col">
+              <form action="/info/change" method="POST">
+                <!-- Other input fields -->
+                <input type="hidden" name="username" value="<%= currUser.username %>">
+                <button class="editt-button" type="submit">
+                  <i class="fas fa-edit"></i> Edit Profile
+                </button>
+              </form>
+            </div>
+               
+              
+              <div class="col">
+                <form action="/info/delete" method="POST">
+                  <input type="hidden" name="username" value="<%= currUser.username %>">
+                <button class="delete-button" type="submit">
+                    <i class="fas fa-edit"></i> Delete Profile
+                </button>
+              </form>
+              </div>
+                <%}%>
+            </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body info-card  social-about" style="height:380px">
+                            <h2 class="text-blue">Personal Information</h2>
+
+
+                            <h4 class="mb-3"><strong>Personal Info</strong></h4>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="social-info">
+                                        <i class="fas fa-birthday-cake mr-2" style="color: #0dd324;"></i>
+                                        <span><%= currUser.basicInfo.birthdate.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' }) %></span>
+
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fa-map-marker-alt mr-2" style="color: #0dd324;"></i>
+                <span><%=currUser.addressInfo.address+", "+currUser.addressInfo.city+", "+currUser.addressInfo.state+"-"+currUser.addressInfo.zipCode %></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fas fa-users mr-2" style="color: #0dd324;"></i>
+                <span><%=currUser.basicInfo.gender%></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fa-briefcase mr-2" style="color: #0dd324;"></i>
+                <span>Student</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="social-info">
+
+                <i class="fas fas fa-mobile mr-2" style="color: #0dd324;"></i>
+                <span><%= currUser.basicInfo.phoneNo%></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fas fa-envelope mr-2" style="color: #0dd324;"></i>
+                <span><%= currUser.basicInfo.email%></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card info-card" style="height:380px">
+        <div class="card-body">
+          <h2 class="text-blue">Tecnical Skills</h2>
+          <%for(let i=0;i<currUser.skillsInfo.technicalSkills.length;i++){%>
+          <%if(i%2==0){%>
+          <div class="row">
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
+
+            </div>
+            <%}else{%>
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
+              <div class="mb-3">
+
+              </div>
+            </div>
+          </div>
+          <%}%>
+
+
+                            <% } %>
+          <h2 class="text-blue">Non-Tecnical Skills</h2>
+          <%for(let i=0;i<currUser.skillsInfo.nontechnicalSkills.length;i++){%>
+          <%if(i%2==0){%>
+          <div class="row">
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
+
+            </div>
+            <%}else{%>
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
+              <div class="mb-3">
+
+              </div>
+            </div>
+          </div>
+          <%}%>
+                            <% } %>
+          <h2 class="text-blue">Hobbies</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <%for(let i=0;i<currUser.hobbiesInfo.sports.length;i++){%>
+              <h4><%=currUser.hobbiesInfo.sports[i]%></h4>
+              <%}%>
+                            </div>
+                            <div class="col-lg-6">
+                              <%for(let i=0;i<currUser.hobbiesInfo.others.length;i++){%>
+              <h4><%=currUser.hobbiesInfo.others[i]%></h4>
+              <%}%>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card info-card" style="height:380px">
+                        <div class="card-body">
+                            <h2 class="text-blue">Education</h2>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h4><strong><%= currUser.educationInfo.cName %></strong></h4>
+              <p><%= currUser.educationInfo.cStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to
+                <%= currUser.educationInfo.cEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
+
+            </div>
+            <div class="col-lg-6">
+              <h4><strong>Branch: <%= currUser.educationInfo.cBranch %></strong></h4>
+              <h4><strong>CGPA: <%= currUser.educationInfo.cCg %></strong></h4>
+            </div>
+            <div class="col-lg-6">
+              <h4><strong><%= currUser.educationInfo.hsName %></strong></h4>
+              <p><%= currUser.educationInfo.hsStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to
+                <%= currUser.educationInfo.hsEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
+            </div>
+            <div class="col-lg-6">
+              <h4><strong>Percentage: <%= currUser.educationInfo.hsPercentage %>% </strong></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card info-card" style="height:380px">
+        <div class="card-body">
+          <h2 class="text-blue">Projects</h2>
+
+          <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
+          <%if(currUser.projectInfo.name[i]===null){%>
+          <%break;}%>
+          <div class="row r2">
+            <div>
+              <h4 class="ProName"> <%=currUser.projectInfo.name[i]%></h4>
+            </div>
+            <div class="col-4">
+              <i class="fas fa-laptop-code mr-2" style="color: #0dd324;"></i>
+              <span>Domain: <%=currUser.projectInfo.domain[i]%></span>
+            </div>
+            <div class="col-lg-4">
+              <i class="fas fa-cubes"></i>
+              <span>Tech Stack: <%=currUser.projectInfo.technologies[i]%></span>
+            </div>
+            <div class="col-lg-4">
+              <i class="fas fa-code-branch"></i>
+              <a href=<%=currUser.projectInfo.githubRepo[i]%>>Github Repo</a>
+            </div>
+          </div>
+          <%}%>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/info.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
